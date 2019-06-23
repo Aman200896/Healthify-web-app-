@@ -1,25 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Navpage from './Nav'
+import Patient from './Patient'
+import prescriptions from './Precriptions'
+import Report from './Report'
+import Home from './Home'
+import Meds from './Meds'
+import {BrowserRouter as Router  , Route} from 'react-router-dom'
+import Food from './Food';
+
+const navbar={
+  background:'linear-gradient(to right bottom,#24c6dc, #514a9d)',
+  height:'91px',
+  paddingTop:'17px'
+  
+
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router >
+      <Navpage/>
+      <Route style={navbar} exact path = '/' component={Home}/>
+      <Route style={navbar} path = '/runmeds' component={Meds}/>
+      <Route style={navbar} path = '/food' component={Food}/>
+      <Route style={navbar} path = '/patients' component={Patient}/>
+      <Route style={navbar} path = '/precriptions' component={prescriptions}/>
+      <Route style={navbar} path = '/reports' component={Report}/>
+    </Router>
   );
 }
 
